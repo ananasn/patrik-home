@@ -5,10 +5,12 @@ services:
     image:  ghcr.io/home-assistant/home-assistant 
     container_name: homeassistant 
     privileged: true
+    ports:
+      - "8123:8123"
     volumes:
-      - /run/dbus:/run/dbus:ro 
+    #  - /run/dbus:/run/dbus:ro 
       - ./config:/config 
     environment:
       - TZ=Europe/Moscow
     restart: always
-    network_mode: "host"
+    # network_mode: "host"
