@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+
+  patrik-home:
+    image:  ghcr.io/home-assistant/home-assistant 
+    container_name: homeassistant 
+    privileged: true
+    volumes:
+      - /run/dbus:/run/dbus:ro 
+      - ./config:/config 
+    environment:
+      - TZ=Europe/Moscow
+    restart: always
+    network_mode: "host"
